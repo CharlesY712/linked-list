@@ -23,8 +23,11 @@ html, body {
 }
 
 #banner-content {
+  margin: -221px auto auto -200px;
   position: absolute;
-  top: 33%;
+  top: 50%;
+  left: 50%;
+  width: 400px;
 }
 
 h1 {
@@ -32,31 +35,48 @@ h1 {
   text-align: center;
   display: block;
   margin-top: 0px;
+  letter-spacing: .85px;
+  width: 414px;
 }
 
 img {
- height: 55px;
+ height: 47px;
+ padding: 0px 10px 0px 10px;
 }
 
 .input-fields {
-  width: 90%;
+  width: 100%;
   font-size: 25px;
-  padding: 13.5px 0px 13.5px 0px;
+  padding: 10px 0px 10px 10px;
   display: block;
   margin: 0px auto 70px auto;
+  letter-spacing: 1.15px;
+  box-shadow: 0px 0px 0px 1px rgba(187,189,191,0.3);
+  /*border: 1px rgba(187,189,191,0.3);*/
+}
+
+input::placeholder {
+  color: rgb(187,189,191);
 }
 
 #enter {
+  box-sizing: content-box;
   color: #FFFFFF;
   background-color: #FFC107;
   font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
   padding-top: 15px;
   padding-bottom: 15px;
-  width: 91%;
+  width: 100%;
   border-radius: 0px;
   border: none;
   display: block;
   margin: 0px auto 0px auto;
+}
+
+#enter:hover {
+  background-color: #FFD773;
 }
 
 section {
@@ -64,22 +84,79 @@ section {
   height: 100%;
 }
 
-a {
-
-}
-
-.read {
-
-}
-
-.delete {
-
-}
-
 #website-list {
   background-color: #CFD8DC;
   float: right;
 }
+
+#website-tab {
+  width: 87%;
+  background-color: #FFF;
+  margin: 18px auto 18px auto;
+  border: 2px solid #607D8B;
+  padding: 15px;
+}
+
+h2 {
+  color: #455A64;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0px auto 15px 0px;
+
+}
+
+.horizontal-line {
+  height: 2px;
+  background-color: #CFD8DC;
+  border: none;
+}
+
+a {
+  display: inline-block;
+  font-size: 25px;
+  color: #607D8B;
+  border-bottom: 2px solid #F2F4F4;
+  text-decoration: none;
+  margin: 20px auto 20px 0px;
+  padding-bottom: 0px;
+}
+
+.website-tab-buttons {
+  font-size: 19px;
+  font-weight: lighter;
+  color: #455A64;
+  border: none;
+  margin-top: 5px;
+  border-bottom: 2px solid #F2F4F4;
+  padding-bottom: 0px;
+  border-radius: 0px;
+}
+
+a:hover, .website-tab-buttons:hover {
+  color: #455A64;
+  border-bottom: 2px solid #FFC107;
+  font-weight: 800;
+}
+
+/*
+.read {
+  background-color: #F2F4F4;
+  width: 90%;
+  margin: 18px auto 18px auto;
+  border: 2px solid #607D8B;
+  padding: 15px;
+}
+
+#read-button {
+  color: #F05A28;
+  border-bottom: none;
+}
+*/
+
+#delete-button {
+  float: right;
+}
+
 
 @media {
 
