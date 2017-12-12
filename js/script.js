@@ -1,5 +1,8 @@
 var enterButton = document.querySelector('#enter');
 var websiteList = document.querySelector('#website-list');
+var readButton = document.querySelector('#read-button');
+var deleteButton = document.querySelector('#delete-button');
+var websiteTab = document.querySelector('.website-tab');
 
 
 
@@ -45,6 +48,18 @@ enterButton.addEventListener('click', function() {
 
 
 // When the user clicks on the “Mark as Read” button:
+
+readButton.addEventListener('click', function() {
+  if (websiteTab.classList.contains('read')) {
+    websiteTab.setAttribute('class', 'website-tab');
+    readButton.removeAttribute('id', 'read-button-read');
+  } else {
+    websiteTab.setAttribute('class', 'read');
+    readButton.setAttribute('id', 'read-button-read');
+  }
+});
+
+
 
   // A class of .read should be added to the bookmark
   

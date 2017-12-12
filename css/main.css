@@ -90,7 +90,7 @@ section {
   overflow: auto;
 }
 
-#website-tab {
+.website-tab {
   width: 87%;
   background-color: #FFF;
   margin: 18px auto 18px auto;
@@ -131,6 +131,7 @@ a {
   border-bottom: 2px solid #F2F4F4;
   padding-bottom: 0px;
   border-radius: 0px;
+  background-color: inherit;
 }
 
 a:hover, .website-tab-buttons:hover {
@@ -139,20 +140,20 @@ a:hover, .website-tab-buttons:hover {
   font-weight: 800;
 }
 
-/*
+
 .read {
   background-color: #F2F4F4;
-  width: 90%;
+  width: 87%;
   margin: 18px auto 18px auto;
   border: 2px solid #607D8B;
   padding: 15px;
 }
 
-#read-button {
+#read-button-read {
   color: #F05A28;
   border-bottom: none;
+  background-color: inherit;
 }
-*/
 
 #delete-button {
   float: right;
