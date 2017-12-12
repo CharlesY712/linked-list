@@ -87,6 +87,7 @@ section {
 #website-list {
   background-color: #CFD8DC;
   float: right;
+  overflow: auto;
 }
 
 #website-tab {
