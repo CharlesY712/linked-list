@@ -1,7 +1,11 @@
 var enterButton = document.querySelector('#enter');
 var websiteList = document.querySelector('#website-list');
+var readButton = document.querySelector('#read-button');
+var deleteButton = document.querySelector('#delete-button');
+var websiteTab = document.querySelector('.website-tab');
 var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
+
 
 // When the user clicks on the button for creating the bookmark, it should be added to the bookmarks section
 function createTab() {
@@ -36,9 +40,8 @@ function createTab() {
   article.appendChild(read);
   // article.appendChild(deleteButton);
 
-  websiteList.appendChild(article);
 
-}
+websiteList.insertBefore(article, websiteList.firstChild);
 
 function createDeleteButton() {
   deleteButton = document.createElement('button');
@@ -59,6 +62,18 @@ enterButton.addEventListener('click', function(event) {
 
 
 // When the user clicks on the “Mark as Read” button:
+
+readButton.addEventListener('click', function() {
+  if (websiteTab.classList.contains('read')) {
+    websiteTab.setAttribute('class', 'website-tab');
+    readButton.removeAttribute('id', 'read-button-read');
+  } else {
+    websiteTab.setAttribute('class', 'read');
+    readButton.setAttribute('id', 'read-button-read');
+  }
+});
+
+
 
   // A class of .read should be added to the bookmark
   
