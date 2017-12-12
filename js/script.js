@@ -1,8 +1,8 @@
 var enterButton = document.querySelector('#enter');
-var websiteList = document.querySelector('#website-list');
+var bookmarkList = document.querySelector('#bookmark-list');
 var readButton = document.querySelector('#read-button');
 var deleteButton = document.querySelector('#delete-button');
-var websiteTab = document.querySelector('.website-tab');
+var bookmark = document.querySelector('.bookmark');
 var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
 
@@ -11,7 +11,7 @@ var websiteURL = document.querySelector('#website-url');
 function createTab() {
 
   var article = document.createElement('article');
-  article.setAttribute('class', 'website-tab');
+  article.setAttribute('class', 'bookmark');
 
   var h2 = document.createElement('h2');
   h2.innerText = websiteTitle.value;
@@ -27,9 +27,7 @@ function createTab() {
   var hr2 = document.createElement('hr');
   hr2.setAttribute('id', 'horizontal-line');
 
-  var read = document.createElement('button');
-  read.setAttribute('class', 'website-tab-buttons');
-  read.innerText = "Read";
+  createReadButton();
 
   createDeleteButton();
 
@@ -38,14 +36,15 @@ function createTab() {
   article.appendChild(a);
   article.appendChild(hr2);
   article.appendChild(read);
-  // article.appendChild(deleteButton);
+  article.appendChild(deleteButton);
 
 
-websiteList.insertBefore(article, websiteList.firstChild);
+bookmarkList.insertBefore(article, bookmarkList.firstChild);
+}
 
 function createDeleteButton() {
   deleteButton = document.createElement('button');
-  deleteButton.setAttribute('class', 'website-tab-buttons');
+  deleteButton.setAttribute('class', 'bookmark-buttons');
   deleteButton.setAttribute('id', 'delete-button');
   deleteButton.innerText = "Delete";
 }
@@ -59,20 +58,43 @@ enterButton.addEventListener('click', function(event) {
   // enterButton.disabled = true;
 });
 
+bookmarkList.addEventListener('click', function(event) {
+  if (event.target.id === 'read-button') {
+    console.log('read button pressed')
+  }
+})
+
+
+
+bookmarkList.addEventListener('click', function(event) {
+  if (event.target.id === 'delete-button') {
+    console.log('remove button pressed')
+  }
+})
 
 
 // When the user clicks on the “Mark as Read” button:
 
-readButton.addEventListener('click', function() {
-  if (websiteTab.classList.contains('read')) {
-    websiteTab.setAttribute('class', 'website-tab');
-    readButton.removeAttribute('id', 'read-button-read');
-  } else {
-    websiteTab.setAttribute('class', 'read');
-    readButton.setAttribute('id', 'read-button-read');
-  }
-});
 
+function createReadButton () {
+
+  read = document.createElement('button');
+  read.setAttribute('class', 'bookmark-buttons');
+  read.setAttribute('id', 'read-button');
+  read.innerText = "Read";
+}
+// websiteList.addEventListener('click', function(event) {
+//   console.log(event)
+
+//   if (event.target.classList.contains('read') {
+//     websiteTab.setAttribute('class', 'bookmark');
+//     readButton.removeAttribute('id', 'read-button-clicked');
+//   } else {
+//     websiteTab.setAttribute('class', 'read');
+//     readButton.setAttribute('id', 'read-button-clicked');
+//   }
+// });
+// }
 
 
   // A class of .read should be added to the bookmark
