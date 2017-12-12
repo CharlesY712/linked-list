@@ -28,6 +28,7 @@ html, body {
   top: 50%;
   left: 50%;
   width: 400px;
+  font-size: 1.5625rem
 }
 
 h1 {
@@ -89,7 +90,7 @@ section {
   float: right;
 }
 
-#website-tab {
+.website-tab {
   width: 87%;
   background-color: #FFF;
   margin: 18px auto 18px auto;
@@ -158,6 +159,18 @@ a:hover, .website-tab-buttons:hover {
 }
 
 
-@media {
+@media screen and (max-width: 480px) {
+  #banner {
+    top: ;
+    width: 100%;
+    height: 50%;
+    background-repeat: round;
+  }
+
+  #website-list {
+    bottom: ;
+    width: 100%;
+    height: 50%;
+  }
 
 }
