@@ -11,7 +11,7 @@ function CreateTab() {
   // this.title = title;
   // this.url = url;
   var article = document.createElement('article');
-  article.setAttribute('id', 'website-tab');
+  article.setAttribute('class', 'website-tab');
   var h2 = document.createElement('h2');
   h2.innerText = "jhgjh";
   var hr1 = document.createElement('hr');
