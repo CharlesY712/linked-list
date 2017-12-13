@@ -150,7 +150,7 @@ a:hover, .bookmark-buttons:hover {
   padding: 15px;
 }
 
-#read-button-clicked {
+.read-button-clicked {
   color: #F05A28;
   border-bottom: none;
   background-color: inherit;

@@ -60,7 +60,9 @@ enterButton.addEventListener('click', function(event) {
 
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.id === 'read-button') {
-    console.log('read button pressed')
+    console.log('read button pressed');
+    event.target.parentNode.classList.toggle('read');
+    event.target.classList.toggle('read-button-clicked');
   }
 })
 
