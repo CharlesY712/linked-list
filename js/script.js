@@ -38,7 +38,6 @@ function createTab() {
   article.appendChild(read);
   article.appendChild(deleteButton);
 
-
 bookmarkList.insertBefore(article, bookmarkList.firstChild);
 }
 
