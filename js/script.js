@@ -5,7 +5,7 @@ var deleteButton = document.querySelector('.bookmark-buttons delete-button');
 var bookmark = document.querySelector('.bookmark');
 var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
-
+var url = document.getElementById('website-url');
 
 // When the user clicks on the button for creating the bookmark, it should be added to the bookmarks section
 function createTab() {
@@ -21,7 +21,7 @@ function createTab() {
 
   var a = document.createElement('a');
   a.innerHTML = websiteURL.value;
-  a.href = 'https://' + websiteURL.value;
+  a.href = websiteURL.value;
   a.target = '_blank';
 
   var hr2 = document.createElement('hr');
@@ -48,12 +48,15 @@ function createDeleteButton() {
 }
 
 enterButton.addEventListener('click', function(event) {
+  if (!url.validity.valid) {
+    return false;
+  } else {
   event.preventDefault();
   createTab();
   websiteTitle.value = '';
   websiteTitle.focus();
   websiteURL.value = '';
-  // enterButton.disabled = true;
+}
 });
 
 bookmarkList.addEventListener('click', function(event) {
@@ -64,7 +67,9 @@ bookmarkList.addEventListener('click', function(event) {
   }
 })
 
-
+ websiteURL.onfocus = function() {
+    websiteURL.value = 'https://'
+  }
 
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.id === 'bookmark-buttons delete-button') {
@@ -83,22 +88,3 @@ function createReadButton () {
   read.setAttribute('id', 'read-button');
   read.innerText = "Read";
 }
-// websiteList.addEventListener('click', function(event) {
-//   console.log(event)
-
-//   if (event.target.classList.contains('read') {
-//     websiteTab.setAttribute('class', 'bookmark');
-//     readButton.removeAttribute('id', 'read-button-clicked');
-//   } else {
-//     websiteTab.setAttribute('class', 'read');
-//     readButton.setAttribute('id', 'read-button-clicked');
-//   }
-// });
-// }
-
-
-  // A class of .read should be added to the bookmark
-  
-  // If it already has the class of .read, it should be removed
-
-// When the user clicks on the “Remove” button, the link should be removed from the page
