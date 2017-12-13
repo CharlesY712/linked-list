@@ -67,13 +67,11 @@ bookmarkList.addEventListener('click', function(event) {
 
 
 bookmarkList.addEventListener('click', function(event) {
-  if (event.target.id === 'bookmark-buttons delete-button') {
-    console.log('remove button pressed')
+  if (event.target.className === 'bookmark-buttons delete-button') {
+    console.log('remove button pressed');
+    event.target.parentNode.remove();
   }
-})
-
-
-// When the user clicks on the “Mark as Read” button:
+});
 
 
 function createReadButton () {
