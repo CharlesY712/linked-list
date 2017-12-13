@@ -156,7 +156,7 @@ a:hover, .bookmark-buttons:hover {
   background-color: inherit;
 }
 
-#delete-button {
+.delete-button {
   float: right;
 }
 

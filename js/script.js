@@ -1,7 +1,7 @@
 var enterButton = document.querySelector('#enter');
 var bookmarkList = document.querySelector('#bookmark-list');
 var readButton = document.querySelector('#read-button');
-var deleteButton = document.querySelector('#delete-button');
+var deleteButton = document.querySelector('.bookmark-buttons delete-button');
 var bookmark = document.querySelector('.bookmark');
 var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
@@ -38,14 +38,12 @@ function createTab() {
   article.appendChild(read);
   article.appendChild(deleteButton);
 
-
 bookmarkList.insertBefore(article, bookmarkList.firstChild);
 }
 
 function createDeleteButton() {
   deleteButton = document.createElement('button');
-  deleteButton.setAttribute('class', 'bookmark-buttons');
-  deleteButton.setAttribute('id', 'delete-button');
+  deleteButton.setAttribute('class', 'bookmark-buttons delete-button');
   deleteButton.innerText = "Delete";
 }
 
@@ -69,7 +67,7 @@ bookmarkList.addEventListener('click', function(event) {
 
 
 bookmarkList.addEventListener('click', function(event) {
-  if (event.target.id === 'delete-button') {
+  if (event.target.id === 'bookmark-buttons delete-button') {
     console.log('remove button pressed')
   }
 })
