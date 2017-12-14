@@ -5,7 +5,23 @@ var deleteButton = document.querySelector('.bookmark-buttons delete-button');
 var bookmark = document.querySelector('.bookmark');
 var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
+var url = document.getElementById('website-url');
 
+websiteURL.onfocus = function() {
+websiteURL.value = 'https://'
+}
+
+enterButton.addEventListener('click', function(event) {
+  if (!url.validity.valid || websiteTitle.value == ""){
+    return false;
+  } else {
+  event.preventDefault();
+  createTab();
+  websiteTitle.value = '';
+  websiteTitle.focus();
+  websiteURL.value = '';
+}
+});
 
 // When the user clicks on the button for creating the bookmark, it should be added to the bookmarks section
 function createTab() {
@@ -21,7 +37,7 @@ function createTab() {
 
   var a = document.createElement('a');
   a.innerHTML = websiteURL.value;
-  a.href = 'https://' + websiteURL.value;
+  a.href = websiteURL.value;
   a.target = '_blank';
 
   var hr2 = document.createElement('hr');
@@ -42,20 +58,13 @@ bookmarkList.insertBefore(article, bookmarkList.firstChild);
 // enterButton.disabled=true;
 }
 
-function createDeleteButton() {
-  deleteButton = document.createElement('button');
-  deleteButton.setAttribute('class', 'bookmark-buttons delete-button');
-  deleteButton.innerText = "Delete";
-}
+function createReadButton () {
 
-enterButton.addEventListener('click', function(event) {
-  event.preventDefault();
-  createTab();
-  websiteTitle.value = '';
-  websiteTitle.focus();
-  websiteURL.value = '';
-  // enterButton.disabled = true;
-});
+  read = document.createElement('button');
+  read.setAttribute('class', 'bookmark-buttons');
+  read.setAttribute('id', 'read-button');
+  read.innerText = "Read";
+}
 
 // websiteTitle.addEventListener('input', function(){
 //   if (websiteTitle.value === '' || websiteURL.value === '') {
@@ -67,12 +76,17 @@ enterButton.addEventListener('click', function(event) {
 
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.id === 'read-button') {
-    console.log('read button pressed');
     event.target.parentNode.classList.toggle('read');
     event.target.classList.toggle('read-button-clicked');
   }
 })
 
+
+function createDeleteButton() {
+  deleteButton = document.createElement('button');
+  deleteButton.setAttribute('class', 'bookmark-buttons delete-button');
+  deleteButton.innerText = "Delete";
+}
 
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.className === 'bookmark-buttons delete-button') {
@@ -81,30 +95,3 @@ bookmarkList.addEventListener('click', function(event) {
   }
 });
 
-
-function createReadButton () {
-
-  read = document.createElement('button');
-  read.setAttribute('class', 'bookmark-buttons');
-  read.setAttribute('id', 'read-button');
-  read.innerText = "Read";
-}
-// websiteList.addEventListener('click', function(event) {
-//   console.log(event)
-
-//   if (event.target.classList.contains('read') {
-//     websiteTab.setAttribute('class', 'bookmark');
-//     readButton.removeAttribute('id', 'read-button-clicked');
-//   } else {
-//     websiteTab.setAttribute('class', 'read');
-//     readButton.setAttribute('id', 'read-button-clicked');
-//   }
-// });
-// }
-
-
-  // A class of .read should be added to the bookmark
-  
-  // If it already has the class of .read, it should be removed
-
-// When the user clicks on the “Remove” button, the link should be removed from the page
