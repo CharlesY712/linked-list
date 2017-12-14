@@ -5,14 +5,30 @@ var deleteButton = document.querySelector('.bookmark-buttons delete-button');
 var bookmark = document.querySelector('.bookmark');
 var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
-var url = document.getElementById('website-url');
+
+websiteTitle.addEventListener('input', function(){
+  if (websiteTitle.value == '' || websiteURL.value == '') {
+    enterButton.disabled = true;
+  } else {
+    enterButton.disabled = false;
+  };
+});
+
+websiteURL.addEventListener('input', function(){
+  if (websiteTitle.value == '' || websiteURL.value == '') {
+    enterButton.disabled = true;
+  } else {
+    enterButton.disabled = false;
+  };
+});
+
 
 websiteURL.onfocus = function() {
-websiteURL.value = 'https://'
+websiteURL.value = 'https://';
 }
 
 enterButton.addEventListener('click', function(event) {
-  if (!url.validity.valid || websiteTitle.value == ""){
+  if (!websiteURL.validity.valid || websiteTitle.value == ""){
     return false;
   } else {
   event.preventDefault();
@@ -23,9 +39,8 @@ enterButton.addEventListener('click', function(event) {
 }
 });
 
-// When the user clicks on the button for creating the bookmark, it should be added to the bookmarks section
-function createTab() {
 
+function createTab() {
   var article = document.createElement('article');
   article.setAttribute('class', 'bookmark');
 
@@ -55,31 +70,25 @@ function createTab() {
   article.appendChild(deleteButton);
 
 bookmarkList.insertBefore(article, bookmarkList.firstChild);
-// enterButton.disabled=true;
-}
+
+bookmarkCount = bookmarkCount + 1;
+
+enterButton.disabled = true;
+};
 
 function createReadButton () {
-
   read = document.createElement('button');
   read.setAttribute('class', 'bookmark-buttons');
   read.setAttribute('id', 'read-button');
   read.innerText = "Read";
-}
-
-// websiteTitle.addEventListener('input', function(){
-//   if (websiteTitle.value === '' || websiteURL.value === '') {
-//     enterButton.disabled = true;
-//   } else {
-//     enterButton.disabled = false;
-//   }
-// })
+};
 
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.id === 'read-button') {
     event.target.parentNode.classList.toggle('read');
     event.target.classList.toggle('read-button-clicked');
-  }
-})
+  };
+});
 
 
 function createDeleteButton() {
@@ -90,8 +99,38 @@ function createDeleteButton() {
 
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.className === 'bookmark-buttons delete-button') {
-    console.log('remove button pressed');
     event.target.parentNode.remove(bookmark);
+    bookmarkCount = bookmarkCount - 1;
   }
 });
 
+// 
+//  Phase 3 
+// 
+
+var bookmarkCount = 0;
+// Run bookmarkCount in console for count of total number of links currently on page.
+
+function readCounter () {
+  readCount = document.querySelectorAll('.bookmark.read').length;
+  return readCount;
+};
+// Run readCounter() in console for count of total number of read links.
+
+function unreadCounter () {
+  unreadCount = document.querySelectorAll('.bookmark').length;
+  return unreadCount;
+}
+// Run unreadCounter() in console for count of total number of unread links.
+
+// 
+//  Phase 4
+// 
+
+function clearReadBookmarks() {
+  var readArray = document.querySelectorAll('.bookmark.read');
+  for (var i = 0; i < readArray.length; i++) {
+    readArray[i].remove('.bookmark.read'); 
+  };
+};
+// Run clearReadBookmarks() in console to clear all read bookmarks.
