@@ -39,6 +39,7 @@ function createTab() {
   article.appendChild(deleteButton);
 
 bookmarkList.insertBefore(article, bookmarkList.firstChild);
+// enterButton.disabled=true;
 }
 
 function createDeleteButton() {
@@ -56,6 +57,14 @@ enterButton.addEventListener('click', function(event) {
   // enterButton.disabled = true;
 });
 
+// websiteTitle.addEventListener('input', function(){
+//   if (websiteTitle.value === '' || websiteURL.value === '') {
+//     enterButton.disabled = true;
+//   } else {
+//     enterButton.disabled = false;
+//   }
+// })
+
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.id === 'read-button') {
     console.log('read button pressed');
@@ -65,15 +74,12 @@ bookmarkList.addEventListener('click', function(event) {
 })
 
 
-
 bookmarkList.addEventListener('click', function(event) {
-  if (event.target.id === 'bookmark-buttons delete-button') {
-    console.log('remove button pressed')
+  if (event.target.className === 'bookmark-buttons delete-button') {
+    console.log('remove button pressed');
+    event.target.parentNode.remove(bookmark);
   }
-})
-
-
-// When the user clicks on the “Mark as Read” button:
+});
 
 
 function createReadButton () {
