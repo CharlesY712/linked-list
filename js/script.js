@@ -7,6 +7,22 @@ var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
 var url = document.getElementById('website-url');
 
+websiteURL.onfocus = function() {
+websiteURL.value = 'https://'
+}
+
+enterButton.addEventListener('click', function(event) {
+  if (!url.validity.valid || websiteTitle.value == ""){
+    return false;
+  } else {
+  event.preventDefault();
+  createTab();
+  websiteTitle.value = '';
+  websiteTitle.focus();
+  websiteURL.value = '';
+}
+});
+
 // When the user clicks on the button for creating the bookmark, it should be added to the bookmarks section
 function createTab() {
 
@@ -41,46 +57,6 @@ function createTab() {
 bookmarkList.insertBefore(article, bookmarkList.firstChild);
 }
 
-function createDeleteButton() {
-  deleteButton = document.createElement('button');
-  deleteButton.setAttribute('class', 'bookmark-buttons delete-button');
-  deleteButton.innerText = "Delete";
-}
-
-enterButton.addEventListener('click', function(event) {
-  if (!url.validity.valid) {
-    return false;
-  } else {
-  event.preventDefault();
-  createTab();
-  websiteTitle.value = '';
-  websiteTitle.focus();
-  websiteURL.value = '';
-}
-});
-
-bookmarkList.addEventListener('click', function(event) {
-  if (event.target.id === 'read-button') {
-    console.log('read button pressed');
-    event.target.parentNode.classList.toggle('read');
-    event.target.classList.toggle('read-button-clicked');
-  }
-})
-
- websiteURL.onfocus = function() {
-    websiteURL.value = 'https://'
-  }
-
-bookmarkList.addEventListener('click', function(event) {
-  if (event.target.id === 'bookmark-buttons delete-button') {
-    console.log('remove button pressed')
-  }
-})
-
-
-// When the user clicks on the “Mark as Read” button:
-
-
 function createReadButton () {
 
   read = document.createElement('button');
@@ -88,3 +64,25 @@ function createReadButton () {
   read.setAttribute('id', 'read-button');
   read.innerText = "Read";
 }
+
+bookmarkList.addEventListener('click', function(event) {
+  if (event.target.id === 'read-button') {
+    event.target.parentNode.classList.toggle('read');
+    event.target.classList.toggle('read-button-clicked');
+  }
+})
+
+function createDeleteButton() {
+  deleteButton = document.createElement('button');
+  deleteButton.setAttribute('class', 'bookmark-buttons delete-button');
+  deleteButton.innerText = "Delete";
+}
+
+bookmarkList.addEventListener('click', function(event) {
+  if (event.target.id === 'bookmark-buttons delete-button') {
+  }
+})
+
+
+// When the user clicks on the “Mark as Read” button:
+
