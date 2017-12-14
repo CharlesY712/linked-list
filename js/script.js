@@ -5,14 +5,31 @@ var deleteButton = document.querySelector('.bookmark-buttons delete-button');
 var bookmark = document.querySelector('.bookmark');
 var websiteTitle = document.querySelector('#website-title');
 var websiteURL = document.querySelector('#website-url');
-var url = document.getElementById('website-url');
+
+
+websiteTitle.addEventListener('input', function(){
+  if (websiteTitle.value == '' || websiteURL.value == '') {
+    enterButton.disabled = true;
+  } else {
+    enterButton.disabled = false;
+  }
+});
+
+websiteURL.addEventListener('input', function(){
+  if (websiteTitle.value == '' || websiteURL.value == '') {
+    enterButton.disabled = true;
+  } else {
+    enterButton.disabled = false;
+  }
+});
+
 
 websiteURL.onfocus = function() {
 websiteURL.value = 'https://'
 }
 
 enterButton.addEventListener('click', function(event) {
-  if (!url.validity.valid || websiteTitle.value == ""){
+  if (!websiteURL.validity.valid || websiteTitle.value == ""){
     return false;
   } else {
   event.preventDefault();
@@ -23,9 +40,8 @@ enterButton.addEventListener('click', function(event) {
 }
 });
 
-// When the user clicks on the button for creating the bookmark, it should be added to the bookmarks section
-function createTab() {
 
+function createTab() {
   var article = document.createElement('article');
   article.setAttribute('class', 'bookmark');
 
@@ -55,24 +71,16 @@ function createTab() {
   article.appendChild(deleteButton);
 
 bookmarkList.insertBefore(article, bookmarkList.firstChild);
-// enterButton.disabled=true;
+
+enterButton.disabled=true;
 }
 
 function createReadButton () {
-
   read = document.createElement('button');
   read.setAttribute('class', 'bookmark-buttons');
   read.setAttribute('id', 'read-button');
   read.innerText = "Read";
 }
-
-// websiteTitle.addEventListener('input', function(){
-//   if (websiteTitle.value === '' || websiteURL.value === '') {
-//     enterButton.disabled = true;
-//   } else {
-//     enterButton.disabled = false;
-//   }
-// })
 
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.id === 'read-button') {

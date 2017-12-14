@@ -72,6 +72,10 @@ input::placeholder {
   background-color: #FFD773;
 }
 
+#enter:disabled:hover {
+  background-color: red;
+}
+
 section {
   width: 50%;
   height: 100%;
