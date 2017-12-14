@@ -39,7 +39,7 @@ function createTab() {
   article.appendChild(deleteButton);
 
 bookmarkList.insertBefore(article, bookmarkList.firstChild);
-enterButton.disabled=true;
+// enterButton.disabled=true;
 }
 
 function createDeleteButton() {
@@ -57,13 +57,13 @@ enterButton.addEventListener('click', function(event) {
   // enterButton.disabled = true;
 });
 
-websiteTitle.addEventListener('input', function(){
-  if (websiteTitle.value === '' || websiteURL.value === '') {
-    enterButton.disabled = true;
-  } else {
-    enterButton.disabled = false;
-  }
-})
+// websiteTitle.addEventListener('input', function(){
+//   if (websiteTitle.value === '' || websiteURL.value === '') {
+//     enterButton.disabled = true;
+//   } else {
+//     enterButton.disabled = false;
+//   }
+// })
 
 bookmarkList.addEventListener('click', function(event) {
   if (event.target.id === 'read-button') {
