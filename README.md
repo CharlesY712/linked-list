@@ -1,6 +1,6 @@
-##### DTR Outline
+### DTR Outline
 
-#### Project: Linked List
+## Project: Linked List
 
 # Group Member Names: Keila Hoover and Charles Yach
 
